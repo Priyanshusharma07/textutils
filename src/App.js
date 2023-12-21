@@ -1,6 +1,6 @@
 
 import './App.css';
-import About from './component/About';
+// import About from './component/About';
 import Alert from './component/Alert';
 import Navbar from './component/Navbar';
 import Txt from './component/Txt';
@@ -8,12 +8,12 @@ import Txt from './component/Txt';
 
 import React,{useState} from 'react';
 
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+//   Link
+// } from "react-router-dom";
 
 
 
@@ -52,40 +52,38 @@ function App() {
 
   return (
     
-      // <div className='blank'>
-        // <Navbar title="Text Utiles" mode={mode} toggleMode={toggleMode}/>
-        // <Alert alert={alert} />
-      //   <div className="container my-3"  mode={mode}>
-        
-      //   <Routes>
-      //       <Route path="/about" element={<About />}></Route>
-      //       <Route path="/" element={<Txt heading="Entre your text to Analyze....." mode={mode} showalert={showalert}/>}></Route>
-      // </Routes>
-      //   </div>
-      // </div>
-    
-      <Router>
-      
-
+      <div className='blank'>
         <Navbar title="Text Utiles" mode={mode} toggleMode={toggleMode}/>
         <Alert alert={alert} />
-      <div className="container my-3">
+        <div className="container my-3"  mode={mode}>
+        <Txt heading="Entre your text to Analyze....." mode={mode} showalert={showalert}/>
+     </div>
+     </div>
+
+
+
+      // <Router>
+      
+
+      //   <Navbar title="Text Utiles" mode={mode} toggleMode={toggleMode}/>
+      //   <Alert alert={alert} />
+      // <div className="container my-3">
                
-          <Routes>
-            <Route exact path="/about" element={<About/>} >
+      //     <Routes>
+      //       <Route exact path="/about" element={<About/>} >
 
-            </Route>
+      //       </Route>
 
-            <Route exact path="/" element={<Txt heading="Entre your text to Analyze....." mode={mode} showalert={showalert}/>}>
+      //       <Route exact path="/" element={<Txt heading="Entre your text to Analyze....." mode={mode} showalert={showalert}/>}>
 
-            </Route>
-          </Routes>
-
-
-      </div>
+      //       </Route>
+      //     </Routes>
 
 
-      </Router>
+      // </div>
+
+
+      // </Router>
    
   )
 }
