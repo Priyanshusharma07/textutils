@@ -59,7 +59,7 @@ export default function Txt(props) {
     </div>
     <div className='container my-2' style={{color: props.mode==='dark'?'white':'black'}}>
         <h1>Your Text Summary</h1>
-        <p>{text.split(" ").length} Words And {text.length} Character</p>
+        <p>{text.split(" ").filter((element)=>{return element.length!=0}).length} Words And {text.length} Character</p>
         <p>{0.008*text.length } Minutes Read</p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Entre somting to preview"}</p>
