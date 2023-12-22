@@ -11,8 +11,7 @@ export default function Txt(props) {
 
     const handleOnChange=(event)=>{
         console.log("On changed");
-        settext(event.target.value)
-        props.showalert("Convert to UpperCase","success");
+        settext(event.target.value) 
     }
     
     const handleLWcase=()=>{
@@ -37,10 +36,8 @@ export default function Txt(props) {
         settext(newtext);
         props.showalert("Text has been Copy","success");
     }
-
+    
   
-
-
     const [text,settext]=useState('Entre your text here??');
 
   return (
@@ -48,21 +45,22 @@ export default function Txt(props) {
     <div className="container" style={{color: props.mode==='dark'?'white':'black'}}>
         <h1 >{props.heading}</h1>
         <div className="mb-3">
-            <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'grey':'white' ,color: props.mode==='dark'?'whit':'black'}} id="box" rows="8"></textarea>    
+            <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'#454e56':'white' ,color: props.mode==='dark'?'whit':'black'}} id="box" rows="8"></textarea>    
         </div>
-        <button className="btn btn-primary mx-2" onClick={handleUPClick}>Convert to UpperCase</button>
-        <button className="btn btn-primary mx-2" onClick={handleLWcase}>Convert to LowerCase</button>
-        <button className="btn btn-primary mx-2" onClick={handleclear}>Clear All</button>
-        <button className="btn btn-primary mx-2" onClick={handleCopy}>Copy text</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleUPClick}>Convert to UpperCase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleLWcase}>Convert to LowerCase</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleclear}>Clear All</button>
+        <button disabled={text.length===0} className="btn btn-primary mx-S2 my-1" onClick={handleCopy}>Copy text</button>
         {/* <button className="btn btn-primary mx-2" onClick={handleremoveSpaces}>To remove a Extra Space</button> */}
 
     </div>
     <div className='container my-2' style={{color: props.mode==='dark'?'white':'black'}}>
         <h1>Your Text Summary</h1>
-        <p>{text.split(" ").filter((element)=>{return element.length!=0}).length} Words And {text.length} Character</p>
-        <p>{0.008*text.length } Minutes Read</p>
+        
+        <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} Words And {text.length} Character</p>
+        <p>{0.008*text.split(" ").filter((element)=>{return element.length!==0}).length } Minutes Read</p>
         <h2>Preview</h2>
-        <p>{text.length>0?text:"Entre somting to preview"}</p>
+        <p>{text.length>0?text:"Nothing to preview...... ."}</p>
     </div>
 
     </>
