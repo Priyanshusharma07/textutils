@@ -64,7 +64,7 @@ function App() {
       <Router>
       
 
-        <Navbar title="Text Utiles" mode={mode} toggleMode={toggleMode}/>
+        <Navbar title="Text Editor" mode={mode} toggleMode={toggleMode}/>
         <Alert alert={alert} />
       <div className="container my-3">
                
